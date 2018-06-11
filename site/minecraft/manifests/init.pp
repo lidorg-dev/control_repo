@@ -24,7 +24,7 @@ $install_dir = '/opt/minecraft'
 #   }
 file {'/etc/systemd/system/minecraft.service':
   ensure => file,
-  conent => epp('minecraft/minecraft.service'),{
+  content => epp('minecraft/minecraft.service'),{
     install_dir => $install_dir,
     })
    }
