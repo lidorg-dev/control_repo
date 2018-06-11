@@ -3,7 +3,7 @@ $url = 'https://launcher.mojang.com/mc/game/1.12.2/server/886945bfb2b978778c3a02
 $install_dir = '/opt/minecraft' 
 )
 {
- file {'/opt/minecraft':
+ file {"${install_dir}":
    ensure => directory,
    }
  file {"${install_dir}/minecraft_server.jar":
