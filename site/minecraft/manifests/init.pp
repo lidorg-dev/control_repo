@@ -18,10 +18,17 @@ $install_dir = '/opt/minecraft'
    ensure => file,
    content => 'eula=true',
    }
- file {'/etc/systemd/system/minecraft.service':
-   ensure => file,
-   source => 'puppet:///modules/minecraft/minecraft.service',
+# file {'/etc/systemd/system/minecraft.service':
+#   ensure => file,
+#   source => 'puppet:///modules/minecraft/minecraft.service',
+#   }
+file {'/etc/systemd/system/minecraft.service':
+  ensure => file,
+  conent => epp('minecraft/minecraft.service'),{
+    install_dir => $install_dir,
+    })
    }
+
  service {'minecraft':
    ensure => running,
    enable => true,
